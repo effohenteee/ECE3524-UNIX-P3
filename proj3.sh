@@ -47,21 +47,21 @@ main() {
 
 	if [ "$choice" -eq 1 ]; then
 		:
-	elif [ "$choice" -eq 2]; then
+	elif [ "$choice" -eq 2 ]; then
 		:
-	elif [ "$choice" -eq 3]; then
+	elif [ "$choice" -eq 3 ]; then
 		:
-	elif [ "$choice" -eq 4]; then
+	elif [ "$choice" -eq 4 ]; then
 		:
-	elif [ "$choice" -eq 5]; then
+	elif [ "$choice" -eq 5 ]; then
 		:
-	elif [ "$choice" -eq 6]; then
+	elif [ "$choice" -eq 6 ]; then
 		:
-	elif [ "$choice" -eq 7]; then
+	elif [ "$choice" -eq 7 ]; then
 		:
-	elif [ "$choice" -eq 8]; then
+	elif [ "$choice" -eq 8 ]; then
 		:
-	elif [ "$choice" -eq 9]; then
+	elif [ "$choice" -eq 9 ]; then
 		:
 	else
 		:
