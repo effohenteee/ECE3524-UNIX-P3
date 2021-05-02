@@ -81,6 +81,12 @@ network_info() {
 
 }
 
+who_is_online() {
+	echo ""
+	print_header "Who is online"
+	echo "`who -H`"
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
@@ -98,7 +104,7 @@ main() {
 	elif [ "$choice" -eq 3 ]; then
 		network_info
 	elif [ "$choice" -eq 4 ]; then
-		:
+		who_is_online
 	elif [ "$choice" -eq 5 ]; then
 		:
 	elif [ "$choice" -eq 6 ]; then
