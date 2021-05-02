@@ -3,16 +3,18 @@
 # ECE 3524 - Intro to UNIX for ECE
 # Project 3
 
-dashes="------------------------------------------------------"
+
+print_header() {
+	echo "------------------------------------"
+	echo "  $1"
+	echo "------------------------------------"
+}
 
 print_menu() {
-	menu_dashes="---------------------------"
 	currentDate=`date`
 	echo ""
 	echo "$currentDate"
-	echo "$menu_dashes"
-	echo "Main Menu"
-	echo "$menu_dots"
+	print_header "Main Menu"
 	echo " 1. Operating system info"
 	echo " 2. Hostname and DNS info"
 	echo " 3. Network info"
@@ -41,11 +43,13 @@ enter_to_continue() {
 
 os_info() {
 	echo ""
-	echo "$dashes"
-	echo "  System information"
-	echo "$dashes"
+	print_header "System information"
 	info=`/usr/bin/lsb_release -a`
 	printf "$info\n"
+}
+
+hostname_and_dns_info() {
+	:
 }
 
 main() {
@@ -56,13 +60,12 @@ main() {
 	else
 		echo""
 		echo "Invalid choice"
-		exit 1
 	fi
 
 	if [ "$choice" -eq 1 ]; then
 		os_info
 	elif [ "$choice" -eq 2 ]; then
-		:
+		hostname_and_dns_info
 	elif [ "$choice" -eq 3 ]; then
 		:
 	elif [ "$choice" -eq 4 ]; then
