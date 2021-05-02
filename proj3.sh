@@ -93,6 +93,12 @@ last_logged_in() {
 	echo "`last`"
 }
 
+ip_address() {
+	echo ""
+	print_header "Public IP information"
+	echo `curl -s https://ipinfo.io/ip`
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
@@ -114,7 +120,7 @@ main() {
 	elif [ "$choice" -eq 5 ]; then
 		last_logged_in
 	elif [ "$choice" -eq 6 ]; then
-		:
+		ip_address
 	elif [ "$choice" -eq 7 ]; then
 		:
 	elif [ "$choice" -eq 8 ]; then
