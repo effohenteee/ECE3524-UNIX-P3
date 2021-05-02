@@ -34,10 +34,39 @@ get_selection() {
 	fi
 }
 
-print_menu
-choice=`get_selection`
-if [ "$choice" -ne 0 ]; then
-	echo "$choice"
-else
-	echo "Invalid choice"
-fi
+main() {
+	print_menu
+	choice=`get_selection`
+	if [ "$choice" -ne 0 ]; then
+		:
+	else
+		echo""
+		echo "Invalid choice"
+		exit 1
+	fi
+
+	if [ "$choice" -eq 1 ]; then
+		:
+	elif [ "$choice" -eq 2]; then
+		:
+	elif [ "$choice" -eq 3]; then
+		:
+	elif [ "$choice" -eq 4]; then
+		:
+	elif [ "$choice" -eq 5]; then
+		:
+	elif [ "$choice" -eq 6]; then
+		:
+	elif [ "$choice" -eq 7]; then
+		:
+	elif [ "$choice" -eq 8]; then
+		:
+	elif [ "$choice" -eq 9]; then
+		:
+	else
+		:
+	fi
+
+}
+
+main
