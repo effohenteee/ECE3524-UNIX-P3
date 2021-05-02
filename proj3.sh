@@ -3,6 +3,7 @@
 # ECE 3524 - Intro to UNIX for ECE
 # Project 3
 
+choice=""
 
 print_header() {
 	echo "------------------------------------"
@@ -105,40 +106,45 @@ disk_usage() {
 	echo "`df --output=pcent,source | grep -vi Use%`"
 }
 
+file_tree() {
+	exec `./P1_CLANTON_FONTE.sh ~ filetree.html`
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
 	if [ "$choice" -ne 0 ]; then
-		:
+		if [ "$choice" -eq 1 ]; then
+		os_info
+		elif [ "$choice" -eq 2 ]; then
+			hostname_and_dns_info
+		elif [ "$choice" -eq 3 ]; then
+			network_info
+		elif [ "$choice" -eq 4 ]; then
+			who_is_online
+		elif [ "$choice" -eq 5 ]; then
+			last_logged_in
+		elif [ "$choice" -eq 6 ]; then
+			ip_address
+		elif [ "$choice" -eq 7 ]; then
+			disk_usage
+		elif [ "$choice" -eq 8 ]; then
+			file_tree
+		elif [ "$choice" -eq 9 ]; then
+			echo "Not implemented"
+		else
+			exit 0
+		fi
 	else
 		echo""
 		echo "Invalid choice"
-	fi
-
-	if [ "$choice" -eq 1 ]; then
-		os_info
-	elif [ "$choice" -eq 2 ]; then
-		hostname_and_dns_info
-	elif [ "$choice" -eq 3 ]; then
-		network_info
-	elif [ "$choice" -eq 4 ]; then
-		who_is_online
-	elif [ "$choice" -eq 5 ]; then
-		last_logged_in
-	elif [ "$choice" -eq 6 ]; then
-		ip_address
-	elif [ "$choice" -eq 7 ]; then
-		disk_usage
-	elif [ "$choice" -eq 8 ]; then
-		:
-	elif [ "$choice" -eq 9 ]; then
-		:
-	else
-		:
 	fi
 
 	enter_to_continue
 
 }
 
-main
+while :; do
+	main
+done
+
