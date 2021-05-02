@@ -99,6 +99,12 @@ ip_address() {
 	echo `curl -s https://ipinfo.io/ip`
 }
 
+disk_usage() {
+	echo ""
+	print_header "Disk Usage Info"
+	echo "`df --output=pcent,source | grep -vi Use%`"
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
@@ -122,7 +128,7 @@ main() {
 	elif [ "$choice" -eq 6 ]; then
 		ip_address
 	elif [ "$choice" -eq 7 ]; then
-		:
+		disk_usage
 	elif [ "$choice" -eq 8 ]; then
 		:
 	elif [ "$choice" -eq 9 ]; then
