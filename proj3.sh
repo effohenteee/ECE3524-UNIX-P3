@@ -49,7 +49,19 @@ os_info() {
 }
 
 hostname_and_dns_info() {
-	:
+	hostname=`hostname`
+	dns_domain=`hostname -d`
+	fqdn=`hostname -f`
+	net_addr=`hostname -i`
+	dns_server=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+
+	echo ""
+	print_header "Hostname and DNS information"
+	echo "Hostname : $hostname"
+	echo "DNS domain : $dns_domain"
+	echo "Fully qualified domain name : $fqdn"
+	echo "Network address (IP) : $net_addr"
+	echo "DNS name server(DNS IP) : $dns_server"
 }
 
 main() {
