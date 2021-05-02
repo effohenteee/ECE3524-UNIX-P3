@@ -87,6 +87,12 @@ who_is_online() {
 	echo "`who -H`"
 }
 
+last_logged_in() {
+	echo ""
+	print_header "List of last logged in users"
+	echo "`last`"
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
@@ -106,7 +112,7 @@ main() {
 	elif [ "$choice" -eq 4 ]; then
 		who_is_online
 	elif [ "$choice" -eq 5 ]; then
-		:
+		last_logged_in
 	elif [ "$choice" -eq 6 ]; then
 		:
 	elif [ "$choice" -eq 7 ]; then
