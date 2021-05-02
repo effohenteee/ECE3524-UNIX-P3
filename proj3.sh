@@ -64,6 +64,23 @@ hostname_and_dns_info() {
 	echo "DNS name server(DNS IP) : $dns_server"
 }
 
+network_info() {
+	echo ""
+	print_header "Network information"
+	printf "Total network interfaces found : %d\n" "`expr $(netstat -i | wc -l) - 3`"
+	echo "*** IP Addresses Information ***"
+	echo "`ip addr show`"
+	echo "***********************"
+	echo "*** Network routing ***"
+	echo "***********************"
+	echo "`netstat -r`"
+	echo "**************************************"
+	echo "*** Interface  traffic information ***"
+	echo "**************************************"
+	echo "`netstat -i`"
+
+}
+
 main() {
 	print_menu
 	choice=`get_selection`
@@ -79,7 +96,7 @@ main() {
 	elif [ "$choice" -eq 2 ]; then
 		hostname_and_dns_info
 	elif [ "$choice" -eq 3 ]; then
-		:
+		network_info
 	elif [ "$choice" -eq 4 ]; then
 		:
 	elif [ "$choice" -eq 5 ]; then
