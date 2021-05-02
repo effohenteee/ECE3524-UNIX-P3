@@ -107,7 +107,7 @@ disk_usage() {
 }
 
 file_tree() {
-	exec `./P1_CLANTON_FONTE.sh ~ filetree.html`
+	exec `./proj1.sh ~ filetree.html`
 }
 
 main() {
